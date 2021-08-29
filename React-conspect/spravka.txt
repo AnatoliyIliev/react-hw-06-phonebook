@@ -1,0 +1,26 @@
+1. Создать репозиторий на GitHub (в репозитории не должно быть никакого дока)
+2. Копируем ссылку этого репозитория и в нужной папке на диске(комп) делаем Git bush Here
+3. В открывшимся окне прописываем git clone ссылка на репозиторий
+4. Открываем с помощью VScode репозиторий.
+5. В терминале прописываем npx create-react-app  . 
+6. npm run build 
+7. запушить на Github - чтобы первая ветка была master
+8. Настройка pre-commit хуков:  (https://github.com/goitacademy/react-lint-staged-workshop ) npm install --save-dev prettier eslint
+9. Пользователям Windows:    npx mrm@2 lint-staged
+10. В VScode – заходим в параметры и находим по поиску codeActionsOnSave и прописываем       "editor.codeActionsOnSave": { "source.fixAll.eslint": true }
+11. В package.json  добавляем  "homepage":"https://Vipa4ka.github.io/react-hw-01-components", (указать свои репозиторий текущий)
+12. npm run build
+13. npm install --save gh-pages   ( https://create-react-app.dev/docs/deployment/ )
+14. Добавляем в "scripts"
+"predeploy": "npm run build",
+"deploy": "gh-pages -d build"
+15. npm run deploy
+16. npm install --save-dev prop-types   В js-файле прописываем import PropTypes from 'prop-types' 
+17. npm install modern-normalize  (https://www.npmjs.com/package/modern-normalize) 
+18. В js-фале прописываем import 'modern-normalize/modern-normalize.css'
+19. Добавляем компилятор SASS  npm install node-sass  (если необходимо)
+20. npm install react-router-dom
+21.
+
+
+

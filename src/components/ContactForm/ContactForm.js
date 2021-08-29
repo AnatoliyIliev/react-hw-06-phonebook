@@ -1,8 +1,10 @@
 // import { getDefaultNormalizer } from '@testing-library/react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styles from './ContactForm.module.scss';
+import actions from '../../redux/actions';
 
 function ContactForm({ onSubmit }) {
   const [name, setName] = useState('');
@@ -13,7 +15,7 @@ function ContactForm({ onSubmit }) {
 
   const handleChange = event => {
     // console.log(event);
-    console.log(event.currentTarget.value);
+    // console.log(event.currentTarget.value);
     const { name, value } = event.currentTarget;
     switch (name) {
       case 'name':
@@ -79,4 +81,8 @@ ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
 };
 
-export default ContactForm;
+const mapDispatchToProps = dispatch => ({
+  onSubmit: (name, number) => dispatch(actions.addContacts(name, number)),
+});
+
+export default connect(null, mapDispatchToProps)(ContactForm);
