@@ -1,8 +1,8 @@
 {
-  "name": "react-template-repository",
+  "name": "react-hw-06-phonebook",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AnatoliyIliev.github.io/react-template-repository",
+  "homepage": "https://AnatoliyIliev.github.io/react-hw-06-phonebook",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",

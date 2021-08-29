@@ -1,37 +1,69 @@
-// import { useState, useEffect, useRef } from 'react';
-import './App.module.scss';
-// import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import API from './services/API';
+import React, { useState, useEffect } from 'react';
+// import useLocalStorage from '../../hooks/useLocalStorage';
+import { v4 as uuidv4 } from 'uuid';
+import ContactForm from './components/ContactForm';
+import Filter from './components/Filter';
+import ContactList from './components/ContactList';
 
 function App() {
-  //  const [searchQuery, setSearchQuery] = useState('');
+  const [contacts, setContacts] = useState(
+    () => JSON.parse(window.localStorage.getItem('contacts')) ?? [],
+  );
+  const [filter, setFilter] = useState('');
 
-  // const onLoading = useRef(loading);
+  useEffect(() => {
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
 
-  // useEffect(() => {
-  //   if (!searchQuery) {
-  //     return;
-  //   }
-  //   fetchUpdate();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [searchQuery]);
+  const formSubmitHandler = (name, number) => {
+    const contactsId = uuidv4();
+    const add = {
+      id: contactsId,
+      name: name,
+      number: number,
+    };
 
-  // const fetchUpdate = () => {
-  //   setLoading(!onLoading.current);
+    const filterName = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(name.toLowerCase()),
+    );
 
-  //   API.fetchImages(searchQuery, page)
-  //     .then(PixabayImageHins => {
-  //       setPixabayImage([...PixabayImage, ...PixabayImageHins.hits]);
-  //       setPage(prevPage => prevPage + 1);
-  //     })
-  //     .catch(() => setError(`Поиск ${searchQuery} не дал результата`))
-  //     .finally(() => {
-  //       setLoading(onLoading.current);
-  //     });
-  // };
+    if (filterName.length > 0) {
+      alert(`${add.name} is already in contacts!`);
+      return;
+    }
 
-  return <div></div>;
+    setContacts(prevState => [add, ...prevState]);
+  };
+
+  const changeFilter = e => {
+    setFilter(e.currentTarget.value);
+  };
+
+  const getVisibleContacts = () => {
+    const normalizedFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter),
+    );
+  };
+
+  const deleteContacts = contactId => {
+    setContacts(prevState =>
+      prevState.filter(contact => contact.id !== contactId),
+    );
+  };
+
+  return (
+    <div>
+      <h1>Phonebook</h1>
+      <ContactForm onSubmit={formSubmitHandler} />
+      <h2>Contacts</h2>
+      <Filter value={filter} onChange={changeFilter} />
+      <ContactList
+        contacts={getVisibleContacts()}
+        onDeleteContact={deleteContacts}
+      />
+    </div>
+  );
 }
 
 export default App;
