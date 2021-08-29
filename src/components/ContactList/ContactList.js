@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-// import ElementContactList from "../ElementContactList";
+import actions from '../../redux/actions';
+import ElementContactList from '../ElementContactList';
 import styles from './ContactList.module.scss';
 import PropTypes from 'prop-types';
 
@@ -7,15 +8,15 @@ const ContactList = ({ contacts, onDeleteContact }) => (
   <ul className={styles.contactList}>
     {contacts.map(({ id, name, number }) => (
       <li className={styles.contactList_items} key={id}>
-        <span className={styles.ContactList_name}>
+        {/* <span className={styles.ContactList_name}>
           {name}: {number}
         </span>
-        <button onClick={onDeleteContact}>Delete</button>
-        {/* <ElementContactList
+        <button onClick={() => onDeleteContact(id)}>Delete</button> */}
+        <ElementContactList
           name={name}
           number={number}
           onDeleteContact={() => onDeleteContact(id)}
-        /> */}
+        />
       </li>
     ))}
   </ul>
@@ -36,7 +37,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onDeleteContact: () => null,
+  onDeleteContact: id => dispatch(actions.deleteContacts(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

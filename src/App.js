@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 // import useLocalStorage from '../../hooks/useLocalStorage';
 // import { v4 as uuidv4 } from 'uuid';
 import ContactForm from './components/ContactForm';
