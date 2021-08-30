@@ -8,10 +8,6 @@ const ContactList = ({ contacts, onDeleteContact }) => (
   <ul className={styles.contactList}>
     {contacts.map(({ id, name, number }) => (
       <li className={styles.contactList_items} key={id}>
-        {/* <span className={styles.ContactList_name}>
-          {name}: {number}
-        </span>
-        <button onClick={() => onDeleteContact(id)}>Delete</button> */}
         <ElementContactList
           name={name}
           number={number}
@@ -32,12 +28,26 @@ ContactList.propTypes = {
   onDeleteContact: PropTypes.func.isRequired,
 };
 
+// const getVisibleContacts = (allContacts, filter) => {
+//   const normalizedFilter = filter.toLowerCase();
+
+//     if (filterName.length > 0) {
+//     alert(`${add.name} is already in contacts!`);
+//     return;
+//   }
+
+//   return allContacts.filter(contact =>
+//     contact.name.toLowerCase().includes(normalizedFilter),
+//   );
+// };
+
 const getVisibleContacts = (allContacts, filter) => {
   const normalizedFilter = filter.toLowerCase();
 
-  return allContacts.filter(contact =>
+  const filterName = allContacts.filter(contact =>
     contact.name.toLowerCase().includes(normalizedFilter),
   );
+  return filterName;
 };
 
 const mapStateToProps = ({ contacts: { filter, items } }) => ({

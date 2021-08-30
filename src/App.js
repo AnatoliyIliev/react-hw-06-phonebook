@@ -33,24 +33,6 @@ function App() {
   //   return;
   // }
 
-  //   setContacts(prevState => [add, ...prevState]);
-  // };
-
-  // const changeFilter = e => {
-  //   setFilter(e.currentTarget.value);
-  // };
-
-  // const getVisibleContacts = () => {
-  //   const normalizedFilter = filter.toLowerCase();
-  //   return contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(normalizedFilter),
-  //   );
-  // };
-
-  // const deleteContacts = contactId => {
-  //   setContacts(prevState =>
-  //     prevState.filter(contact => contact.id !== contactId),
-  //   );
   // };
 
   return (
@@ -58,13 +40,8 @@ function App() {
       <h1>Phonebook</h1>
       <ContactForm />
       <h2>Contacts</h2>
-      <Filter
-      // value={filter} onChange={changeFilter}
-      />
-      <ContactList
-      // contacts={getVisibleContacts()}
-      // onDeleteContact={deleteContacts}
-      />
+      <Filter />
+      <ContactList />
     </div>
   );
 }
