@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import useLocalStorage from '../../hooks/useLocalStorage';
 // import { v4 as uuidv4 } from 'uuid';
 import ContactForm from './components/ContactForm';
@@ -10,7 +10,7 @@ function App() {
   //   () => JSON.parse(window.localStorage.getItem('contacts')) ?? [],
   // );
 
-  const [filter, setFilter] = useState('');
+  // const [filter, setFilter] = useState('');
 
   // useEffect(() => {
   //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
@@ -24,21 +24,21 @@ function App() {
   //     number: number,
   //   };
 
-  //   const filterName = contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(name.toLowerCase()),
-  //   );
+  // const filterName = contacts.filter(contact =>
+  //   contact.name.toLowerCase().includes(name.toLowerCase()),
+  // );
 
-  //   if (filterName.length > 0) {
-  //     alert(`${add.name} is already in contacts!`);
-  //     return;
-  //   }
+  // if (filterName.length > 0) {
+  //   alert(`${add.name} is already in contacts!`);
+  //   return;
+  // }
 
   //   setContacts(prevState => [add, ...prevState]);
   // };
 
-  const changeFilter = e => {
-    setFilter(e.currentTarget.value);
-  };
+  // const changeFilter = e => {
+  //   setFilter(e.currentTarget.value);
+  // };
 
   // const getVisibleContacts = () => {
   //   const normalizedFilter = filter.toLowerCase();
@@ -58,7 +58,9 @@ function App() {
       <h1>Phonebook</h1>
       <ContactForm />
       <h2>Contacts</h2>
-      <Filter value={filter} onChange={changeFilter} />
+      <Filter
+      // value={filter} onChange={changeFilter}
+      />
       <ContactList
       // contacts={getVisibleContacts()}
       // onDeleteContact={deleteContacts}
