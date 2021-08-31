@@ -6,35 +6,6 @@ import Filter from './components/Filter';
 import ContactList from './components/ContactList';
 
 function App() {
-  // const [contacts, setContacts] = useState(
-  //   () => JSON.parse(window.localStorage.getItem('contacts')) ?? [],
-  // );
-
-  // const [filter, setFilter] = useState('');
-
-  // useEffect(() => {
-  //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  // }, [contacts]);
-
-  // const addContacts = (name, number) => {
-  //   const contactsId = uuidv4();
-  //   const add = {
-  //     id: contactsId,
-  //     name: name,
-  //     number: number,
-  //   };
-
-  // const filterName = contacts.filter(contact =>
-  //   contact.name.toLowerCase().includes(name.toLowerCase()),
-  // );
-
-  // if (filterName.length > 0) {
-  //   alert(`${add.name} is already in contacts!`);
-  //   return;
-  // }
-
-  // };
-
   return (
     <div>
       <h1>Phonebook</h1>

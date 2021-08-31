@@ -28,6 +28,7 @@ function ContactForm({ onSubmit }) {
         return;
     }
   };
+  console.log();
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -74,15 +75,6 @@ function ContactForm({ onSubmit }) {
     </form>
   );
 }
-
-// const filterName = contacts.filter(contact =>
-//       contact.name.toLowerCase().includes(name.toLowerCase()),
-//     );
-
-//     if (filterName.length > 0) {
-//       alert(`${add.name} is already in contacts!`);
-//       return;
-//     }
 
 ContactForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,

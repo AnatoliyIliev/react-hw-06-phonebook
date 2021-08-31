@@ -28,19 +28,6 @@ ContactList.propTypes = {
   onDeleteContact: PropTypes.func.isRequired,
 };
 
-// const getVisibleContacts = (allContacts, filter) => {
-//   const normalizedFilter = filter.toLowerCase();
-
-//     if (filterName.length > 0) {
-//     alert(`${add.name} is already in contacts!`);
-//     return;
-//   }
-
-//   return allContacts.filter(contact =>
-//     contact.name.toLowerCase().includes(normalizedFilter),
-//   );
-// };
-
 const getVisibleContacts = (allContacts, filter) => {
   const normalizedFilter = filter.toLowerCase();
 
